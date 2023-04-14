@@ -1,10 +1,3 @@
-use substreams_ethereum::{block_view::LogView, Event};
-
-use crate::pb::masterfile::{
-    common::v1::TransactionMetadata,
-    drop::v1::{drop_event, DropEvent},
-};
-
 pub mod approval;
 pub mod approval_for_all;
 pub mod drop_created;
@@ -18,6 +11,12 @@ pub mod randomness_received;
 pub mod randomness_requested;
 pub mod token_edition_set;
 pub mod transfer;
+
+use crate::pb::masterfile::{
+    common::v1::TransactionMetadata,
+    drop::v1::{drop_event, DropEvent},
+};
+use substreams_ethereum::{block_view::LogView, Event};
 
 pub fn translate<T: Event>(
     metadata: &Option<TransactionMetadata>,

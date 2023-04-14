@@ -65,5 +65,32 @@ modules:
     output:
       type: proto:masterfile.drop.v1.DropEvents
 
+  - name: map_safe_events
+    kind: map
+    inputs:
+      - store: store_deployments
+      - source: sf.ethereum.type.v2.Block
+    output:
+      type: proto:masterfile.safe.v1.SafeEvents
+
+  - name: map_split_events
+    kind: map
+    inputs:
+      - store: store_deployments
+      - source: sf.ethereum.type.v2.Block
+    output:
+      type: proto:masterfile.splits.v1.SplitEvents
+
+  - name: map_output_events
+    kind: map
+    inputs:
+      - map: map_registry_events
+      - map: map_factory_events
+      - map: map_drop_events
+      - map: map_safe_events
+      - map: map_split_events
+    output:
+      type: proto:masterfile.output.v1.MasterfileEvents
+
 params:
   map_registry_events: ""
