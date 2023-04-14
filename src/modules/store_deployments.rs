@@ -1,12 +1,13 @@
-use common::keyer::{self, DeploymentType};
-use substreams::prelude::*;
-
-use crate::pb::masterfile::{
-    deployment::v1::{
-        deployment::Type, ChannelDeployment, Deployment, MysteryBoxDrop, SplitDeployment,
+use crate::{
+    keyer::{self, DeploymentType},
+    pb::masterfile::{
+        deployment::v1::{
+            deployment::Type, ChannelDeployment, Deployment, MysteryBoxDrop, SplitDeployment,
+        },
+        factory::v1::{factory_event, FactoryEvents},
     },
-    factory::v1::{factory_event, FactoryEvents},
 };
+use substreams::prelude::*;
 
 #[substreams::handlers::store]
 fn store_deployments(events: FactoryEvents, store: StoreSetProto<Deployment>) {

@@ -1,8 +1,3 @@
-use common::utils::pretty_hex;
-use substreams::Hex;
-use substreams::{errors::Error, log};
-use substreams_ethereum::{pb::eth::v2::Block, Event};
-
 use crate::abi::Registry::events;
 use crate::pb::masterfile::registry::v1::{
     registry_event::{
@@ -10,7 +5,10 @@ use crate::pb::masterfile::registry::v1::{
     },
     RegistryEvent, RegistryEvents,
 };
-use crate::utils::extract_metadata;
+use crate::utils::{extract_metadata, pretty_hex};
+use substreams::Hex;
+use substreams::{errors::Error, log};
+use substreams_ethereum::{pb::eth::v2::Block, Event};
 
 #[substreams::handlers::map]
 fn map_registry_events(param: String, block: Block) -> Result<RegistryEvents, Error> {

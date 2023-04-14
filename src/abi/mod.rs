@@ -6,6 +6,16 @@ pub mod ChannelFactory;
 
 #[rustfmt::skip]
 #[allow(unused_imports)]
+#[path = "./GnosisSafeL2.rs"]
+pub mod GnosisSafeL2;
+
+#[rustfmt::skip]
+#[allow(unused_imports)]
+#[path = "./MysteryBoxDrop.rs"]
+pub mod MysteryBoxDrop;
+
+#[rustfmt::skip]
+#[allow(unused_imports)]
 #[path = "./MysteryBoxDropFactory.rs"]
 pub mod MysteryBoxDropFactory;
 
@@ -13,6 +23,11 @@ pub mod MysteryBoxDropFactory;
 #[allow(unused_imports)]
 #[path = "./Registry.rs"]
 pub mod Registry;
+
+#[rustfmt::skip]
+#[allow(unused_imports)]
+#[path = "./SplitMain.rs"]
+pub mod SplitMain;
 
 #[rustfmt::skip]
 #[allow(unused_imports)]

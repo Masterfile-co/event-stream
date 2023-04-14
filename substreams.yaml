@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/streamingfast/substreams/develop/schemas/manifest-schema.json
 specVersion: v0.1.0
 package:
-  name: masterfile_deployments
+  name: masterfile_event_stream
   version: v0.1.0
 
 imports:
@@ -19,7 +19,7 @@ protobuf:
 binaries:
   default:
     type: wasm/rust-v1
-    file: ../target/wasm32-unknown-unknown/release/deployments.wasm
+    file: ./target/wasm32-unknown-unknown/release/event_stream.wasm
 
 modules:
   - name: map_registry_events

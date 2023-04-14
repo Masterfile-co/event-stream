@@ -1,13 +1,14 @@
-use common::keyer;
-use substreams::prelude::*;
-
-use crate::pb::masterfile::{
-    factory::v1::{
-        factory::{ChannelFactory, MysteryBoxDropFactory, SplitsFactory, Type as FactoryType},
-        Factory,
+use crate::{
+    keyer,
+    pb::masterfile::{
+        factory::v1::{
+            factory::{ChannelFactory, MysteryBoxDropFactory, SplitsFactory, Type as FactoryType},
+            Factory,
+        },
+        registry::v1::{registry_event, RegistryEvents},
     },
-    registry::v1::{registry_event, RegistryEvents},
 };
+use substreams::prelude::*;
 
 #[substreams::handlers::store]
 fn store_factories(events: RegistryEvents, store: StoreSetProto<Factory>) {

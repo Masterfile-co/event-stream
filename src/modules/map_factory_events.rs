@@ -1,16 +1,15 @@
 use crate::{
+    abi::{
+        ChannelFactory::events::ChannelDeployed, MysteryBoxDropFactory::events::DropDeployed,
+        SplitsFactory::events::SplitDeployed,
+    },
+    keyer,
     pb::masterfile::factory::v1::{factory_event, Factory, FactoryEvent, FactoryEvents},
-    utils::extract_metadata,
+    utils::{extract_metadata, pretty_hex},
 };
-use common::{keyer, utils::pretty_hex};
 use substreams::prelude::*;
-use substreams_ethereum::{pb::eth::v2::Block, Event};
-
-use crate::abi::{
-    ChannelFactory::events::ChannelDeployed, MysteryBoxDropFactory::events::DropDeployed,
-    SplitsFactory::events::SplitDeployed,
-};
 use substreams::{errors::Error, log};
+use substreams_ethereum::{pb::eth::v2::Block, Event};
 
 #[substreams::handlers::map]
 fn map_factory_events(block: Block, store: StoreGetProto<Factory>) -> Result<FactoryEvents, Error> {
