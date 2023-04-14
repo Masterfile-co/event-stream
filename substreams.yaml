@@ -13,6 +13,10 @@ protobuf:
     - registry.proto
     - factory.proto
     - deployment.proto
+    - drop.proto
+    - safe.proto
+    - splits.proto
+    - output.proto
   importPaths:
     - ./proto/v1
 
@@ -52,6 +56,14 @@ modules:
     valueType: proto:masterfile.deployment.v1.Deployment
     inputs:
       - map: map_factory_events
+
+  - name: map_drop_events
+    kind: map
+    inputs:
+      - store: store_deployments
+      - source: sf.ethereum.type.v2.Block
+    output:
+      type: proto:masterfile.drop.v1.DropEvents
 
 params:
   map_registry_events: ""

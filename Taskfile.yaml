@@ -13,7 +13,7 @@ tasks:
     cmds:
       - task: proto
       - task: build
-      - substreams run -e polygon.streamingfast.io:443 substreams.yaml map_factory_events --start-block 39146294 --stop-block 39146298 -p map_registry_events=071402d3A809f7E8b1B1b75AFa3A500D782B757f
+      - substreams run -e polygon.streamingfast.io:443 substreams.yaml map_drop_events --start-block 39150000 --stop-block 39150010 -p map_registry_events=071402d3A809f7E8b1B1b75AFa3A500D782B757f
 
   pack:
     cmds:
