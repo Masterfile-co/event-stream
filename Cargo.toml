@@ -1,0 +1,22 @@
+[package]
+name = "event_stream"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+name = "event_stream"
+
+[dependencies]
+substreams = "0.5.6"
+substreams-ethereum = "0.9.1"
+prost = "0.11.6"
+ethabi = "18.0.0"
+num-bigint = "0.4.3"
+tiny-keccak = "2.0.2"
+hex-literal = "0.4.1"
+
+[build-dependencies]
+anyhow = "1.0.69"
+substreams-ethereum = "0.9.1"
+thiserror = "1.0.38"

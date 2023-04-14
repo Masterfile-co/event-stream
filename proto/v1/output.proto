@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "common.proto";
+import "drop.proto";
+import "safe.proto";
+import "splits.proto";
+import "factory.proto";
+import "registry.proto";
+
+package masterfile.output.v1;
+
+message MasterfileEvent {
+	oneof event {
+		masterfile.registry.v1.RegistryEvent registry = 1;
+		masterfile.factory.v1.FactoryEvent factory = 2;
+		masterfile.drop.v1.DropEvent drop = 3;
+		masterfile.safe.v1.SafeEvent safe = 4;
+		masterfile.splits.v1.SplitEvent splits = 5;
+	}
+}
+
+message MasterfileEvents {
+	repeated MasterfileEvent events = 1;
+}

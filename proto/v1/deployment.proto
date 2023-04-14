@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "common.proto";
+
+package masterfile.deployment.v1;
+
+message Deployment{
+	oneof type {
+		ChannelDeployment channel = 1;
+		SplitDeployment split = 2;
+		MysteryBoxDrop mystery_box_drop = 3;
+	}
+	string address = 100;
+	uint64 version = 101;
+	uint64 ordinal = 200;
+}
+
+message ChannelDeployment {
+}
+
+message SplitDeployment {
+}
+
+message MysteryBoxDrop {
+}
+
+message Deployments {
+	repeated Deployment deployments = 1;
+}

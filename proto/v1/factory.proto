@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+import "common.proto";
+
+package masterfile.factory.v1;
+
+message Factory {
+	oneof type {
+		ChannelFactory channel = 1;
+		SplitsFactory splits = 2;
+		MysteryBoxDropFactory mystery_box_drop = 3;
+	}
+	string address = 100;
+	uint64 version = 101;
+	uint64 ordinal = 200;
+
+	message ChannelFactory {
+	}
+	
+	message SplitsFactory {
+	}
+	
+	message MysteryBoxDropFactory {
+	}
+}
+
+message Factories {
+	repeated Factory factories = 1;
+}
+
+message FactoryEvent {
+	oneof event {
+		ChannelDeployed channel_deployed = 1;
+		SplitDeployed split_deployed = 2;
+		MysteryBoxDropDeployed mystery_box_drop_deployed = 3;
+	}
+	string address = 100;
+	masterfile.common.v1.TransactionMetadata metadata = 101;
+	uint64 ordinal = 200;
+
+	message ChannelDeployed {
+		string channel = 1;
+		string deployer = 2;
+		uint64 version = 3;
+	}
+	
+	message MysteryBoxDropDeployed {
+		string drop = 1;
+		string channel = 2;
+		string conduit = 3;
+		uint64 version = 4;
+	}
+	
+	message SplitDeployed {
+		string split = 1;
+		string channel = 2;
+		uint64 version = 3;
+	}
+}
+
+message FactoryEvents {
+	repeated FactoryEvent events = 1;
+}
