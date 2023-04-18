@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/streamingfast/substreams/develop/schemas/manifest-schema.json
 specVersion: v0.1.0
 package:
-  name: masterfile_event_stream_stg
-  version: v0.1.0
+  name: masterfile_event_stream_{{env}}
+  version: {{version}}
 
 imports:
   eth: https://github.com/streamingfast/sf-ethereum/releases/download/v0.10.2/ethereum-v0.10.4.spkg
@@ -28,7 +28,7 @@ binaries:
 modules:
   - name: map_registry_events
     kind: map
-    initialBlock: 39145378
+    initialBlock: {{initialBlock}}
     inputs:
       - params: string
       - source: sf.ethereum.type.v2.Block
@@ -93,4 +93,4 @@ modules:
       type: proto:masterfile.output.v1.MasterfileEvents
 
 params:
-  map_registry_events: "071402d3A809f7E8b1B1b75AFa3A500D782B757f"
+  map_registry_events: "{{registryAddr}}"

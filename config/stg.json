@@ -1,0 +1,6 @@
+{
+  "env": "stg",
+  "registryAddr": "071402d3A809f7E8b1B1b75AFa3A500D782B757f",
+  "initialBlock": 39145378,
+  "version": "v0.1.0"
+}

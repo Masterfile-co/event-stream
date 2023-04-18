@@ -93,4 +93,4 @@ modules:
       type: proto:masterfile.output.v1.MasterfileEvents
 
 params:
-  map_registry_events: "071402d3A809f7E8b1B1b75AFa3A500D782B757f"
+  map_registry_events: 071402d3A809f7E8b1B1b75AFa3A500D782B757f
