@@ -33,13 +33,11 @@ pub fn translate<T: Event>(
         None => None,
     };
 
-	event
-
-    // if let Some(_) = store.get_last(extract_split_address(&event).unwrap_or_default()) {
-    //     event
-    // } else {
-    //     None
-    // }
+    if let Some(_) = store.get_last(extract_split_address(&event).unwrap_or_default()) {
+        event
+    } else {
+        None
+    }
 }
 
 fn extract_split_address(event: &Option<SplitEvent>) -> Option<String> {
