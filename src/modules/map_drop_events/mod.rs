@@ -25,7 +25,7 @@ pub fn map_drop_events(
 
         if let Some(_) = store.get_last(&keyer::deployment_key(
             &address,
-            keyer::DeploymentType::Channel,
+            keyer::DeploymentType::MysteryBoxDrop,
         )) {
             log::debug!("Found deployment for {}", address);
             let metadata = extract_metadata(&log, &block);

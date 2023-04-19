@@ -7,6 +7,7 @@ pub mod initiate_control_transfer;
 pub mod update_split;
 
 use crate::{
+    keyer,
     pb::masterfile::{
         common::v1::TransactionMetadata,
         deployment::v1::Deployment,
@@ -33,7 +34,10 @@ pub fn translate<T: Event>(
         None => None,
     };
 
-    if let Some(_) = store.get_last(extract_split_address(&event).unwrap_or_default()) {
+    if let Some(_) = store.get_last(keyer::deployment_key(
+        &extract_split_address(&event).unwrap_or_default(),
+        keyer::DeploymentType::Splits,
+    )) {
         event
     } else {
         None

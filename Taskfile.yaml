@@ -13,7 +13,7 @@ tasks:
     cmds:
       - task: proto
       - task: build
-      - substreams run -e polygon.streamingfast.io:443 masterfile-event-stream-stg-v0.1.0.spkg map_output_events --stop-block 39145427 -p map_registry_events=071402d3A809f7E8b1B1b75AFa3A500D782B757f --production-mode
+      - substreams run -e polygon.streamingfast.io:443 substreams.yaml map_output_events --start-block 41118150 --stop-block 41118160 --production-mode
 
   pack:
     internal: true

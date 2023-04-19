@@ -7,7 +7,7 @@ use crate::{
         factory::v1::{factory_event, FactoryEvents},
     },
 };
-use substreams::prelude::*;
+use substreams::{prelude::*, log};
 
 #[substreams::handlers::store]
 fn store_deployments(events: FactoryEvents, store: StoreSetProto<Deployment>) {
@@ -39,6 +39,10 @@ fn store_deployments(events: FactoryEvents, store: StoreSetProto<Deployment>) {
                     );
                 }
                 factory_event::Event::MysteryBoxDropDeployed(mystery_box_drop_deployed) => {
+                    log::debug!(
+                        "Found MysteryBoxDropDeployed event for {}",
+                        mystery_box_drop_deployed.drop
+                    );
                     store.set(
                         factory_event.ordinal,
                         keyer::deployment_key(
